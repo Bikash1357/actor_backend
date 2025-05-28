@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor Prediction Model</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎭 Actor Prediction Model</h1>
+        
+        <div class="card">
+            <label for="genres">🎬 Enter Genres:</label>
+            <input type="text" id="genres" placeholder="e.g., Action, Thriller">
+
+            <label for="min_height">📏 Min Height (m):</label>
+            <input type="number" id="min_height" step="0.01" value="1.70">
+
+            <label for="max_height">📏 Max Height (m):</label>
+            <input type="number" id="max_height" step="0.01" value="1.90">
+
+            <label for="min_age">🎂 Min Age:</label>
+            <input type="number" id="min_age" value="30">
+
+            <label for="max_age">🎂 Max Age:</label>
+            <input type="number" id="max_age" value="50">
+
+            <button onclick="getPrediction()">🔍 Find Best Actors</button>
+        </div>
+
+        <!-- Initially Hidden Result Section -->
+        <div id="results" class="hidden">
+            <h2>Top Actor Matches</h2>
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Actor</th>
+                        <th class="tooltip">⭐ Score 
+                            <span class="tooltip-text">Calculated as: (Genre Match * 2) + (Avg Rating * 1.5) + (Previous Movies * 1.2) + (Awards * 1.5)</span>
+                        </th>
+                        <th class="tooltip">🎭 Genre Match 
+                            <span class="tooltip-text">Average genre rating * 2</span>
+                        </th>
+                        <th class="tooltip">🌟 Avg Rating
+                            <span class="tooltip-text">Actor's overall rating</span>
+                        </th>
+                        <th>🎬 Movies</th>
+                        <th>🏆 Awards</th>
+                        <th>📏 Height (m)</th>
+                        <th>🎂 Age</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <p id="error-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
